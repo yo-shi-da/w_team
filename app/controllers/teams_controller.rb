@@ -57,3 +57,7 @@ class TeamsController < ApplicationController
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
 end
+
+
+# <% binding.pry %>
+# assign.team.owner_id == @team.owner.id

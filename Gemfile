@@ -36,10 +36,10 @@ group :development, :test do
   gem 'bullet'
   gem 'byebug', platform: :mri
   gem 'database_cleaner'
+  gem 'pry-byebug'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'guard-rspec'
-  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
@@ -74,3 +74,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'rails-erd'
