@@ -46,6 +46,16 @@ class TeamsController < ApplicationController
   def dashboard
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
+  
+  def authority_change
+    
+      @team = Team.find(params[:id])
+      @team.owner_id = params[:assign]
+      @team.save
+      redirect_to team_path(params[:id])
+      # binding.pry
+
+  end
 
   private
 
@@ -57,3 +67,10 @@ class TeamsController < ApplicationController
     params.fetch(:team, {}).permit %i[name icon icon_cache owner_id keep_team_id]
   end
 end
+
+# <% if current_user.id == @team.owner_id %>
+#   <td><%= button_to '権限移動', {controller: 'teams', action: 'authority_change'}, {method: :get, params: {id: @team.id} , class: 'btn btn-sm btn-danger' } %></td>
+# <% end %>
+#<% binding.pry %>
+
+

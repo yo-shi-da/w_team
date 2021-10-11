@@ -256,6 +256,7 @@ ja:
     button:
       submit: '投稿'
       edit: '編集'
+      authority: '権限移動'
       delete: '削除'
       create: '作成'
       invite: '招待'
