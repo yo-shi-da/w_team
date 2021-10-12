@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  # 送信元（from）の設定
+  default from: 'test_leader@example.com'
   layout 'mailer'
 end

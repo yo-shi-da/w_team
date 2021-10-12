@@ -51,10 +51,13 @@ class TeamsController < ApplicationController
     
       @team = Team.find(params[:id])
       @team.owner_id = params[:assign]
-      @team.save
-      redirect_to team_path(params[:id])
       # binding.pry
-
+      if @team.save
+        TeamMailer.team_change_mail(@team).deliver
+        redirect_to team_path(params[:id]), notice: "権限変更のメールを送信しています。"
+      else
+        redirect_to team_path(params[:id])
+      end
   end
 
   private
