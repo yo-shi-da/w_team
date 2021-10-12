@@ -9,6 +9,7 @@
     <div class="user-panel mt-3 pb-3 mb-3">
       <div class="info">
         <h3 style="color: white;"><%= @working_team.name.truncate(15) %></h3>
+        <h3 style="color: white;"><%= @working_team.name.truncate(15) %></h3>
       </div>
     </div>
 
@@ -37,6 +38,11 @@
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
+              
+            <% if current_user.id == @working_team.owner_id || current_user.id == agenda.user_id %>
+              <%= button_to '削除', agenda, method: :delete, class: 'btn btn-sm btn-danger' %>
+            <% end %>
+            
             <ul class="nav nav-treeview" style="display: block;">
               <% agenda.articles.each do |article| %>
                 <li class="nav-item">

@@ -20,6 +20,15 @@ class AgendasController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @agenda = Agenda.find(params[:id])
+    @agenda.destroy
+    redirect_to dashboard_path, notice: "Agendaを削除しました。"
+    # binding.pry
+    # <% binding.pry %>
+
+  end
 
   private
 
@@ -31,3 +40,4 @@ class AgendasController < ApplicationController
     params.fetch(:agenda, {}).permit %i[title description]
   end
 end
+
