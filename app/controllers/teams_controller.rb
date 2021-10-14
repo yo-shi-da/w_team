@@ -58,7 +58,6 @@ class TeamsController < ApplicationController
   end
 end
 
-
 # <% binding.pry %>
 # assign.team.owner_id == @team.owner.id
 # <td><%= link_to I18n.t('views.button.delete'), team_assign_path(@team, assign), data:{ confirm: '見れません。'}, class: 'btn btn-sm btn-danger' %></td>
