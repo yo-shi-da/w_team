@@ -27,6 +27,7 @@ gem 'seed-fu', '~> 2.3'
 # gem 'rmagick'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
+gem 'rexml'
 
 # Authentication
 gem 'devise'
