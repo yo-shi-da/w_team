@@ -46,18 +46,17 @@ class TeamsController < ApplicationController
   def dashboard
     @team = current_user.keep_team_id ? Team.find(current_user.keep_team_id) : current_user.teams.first
   end
-  
+
   def authority_change
-    
-      @team = Team.find(params[:id])
-      @team.owner_id = params[:assign]
-      # binding.pry
-      if @team.save
-        TeamMailer.team_change_mail(@team).deliver
-        redirect_to team_path(params[:id]), notice: "権限変更のメールを送信しています。"
-      else
-        redirect_to team_path(params[:id])
-      end
+    @team = Team.find(params[:id])
+    @team.owner_id = params[:assign]
+    # binding.pry
+    if @team.save
+      TeamMailer.team_change_mail(@team).deliver
+      redirect_to team_path(params[:id]), notice: "権限変更のメールを送信しています。"
+    else
+      redirect_to team_path(params[:id])
+    end
   end
 
   private
@@ -74,6 +73,4 @@ end
 # <% if current_user.id == @team.owner_id %>
 #   <td><%= button_to '権限移動', {controller: 'teams', action: 'authority_change'}, {method: :get, params: {id: @team.id} , class: 'btn btn-sm btn-danger' } %></td>
 # <% end %>
-#<% binding.pry %>
-
-
+# <% binding.pry %>
